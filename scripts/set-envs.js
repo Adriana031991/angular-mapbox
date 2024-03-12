@@ -7,14 +7,15 @@ const targetPath = './src/environments/environment.ts';
 
 const envFileContent = `
 export const environment = {
-  mapbox_key: "${ process.env['MAPBOX_KEY'] }",
+  mapbox_key: {accessToken:"${process.env['MAPBOX_KEY']}"},
   otra: "PROPIEDAD",
+  production: false,
 };
 `;
 
 mkdirSync('./src/environments', { recursive: true });
 
-writeFileSync( targetPath, envFileContent );
+writeFileSync(targetPath, envFileContent);
 
 
 
